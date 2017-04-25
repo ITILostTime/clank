@@ -2,4 +2,5 @@
 const sum = require('./sum');
 const bla = require('./bla');
 
-bla("hey");
+var rslt = bla("hey");
+console.log(rslt);
