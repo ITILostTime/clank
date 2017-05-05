@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using ClankWebApp.Models;
 
 namespace ClankWebApp
 {
@@ -29,6 +31,9 @@ namespace ClankWebApp
         {
             // Add framework services.
             services.AddMvc();
+
+            services.AddDbContext<ClankWebAppContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ClankWebAppContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
